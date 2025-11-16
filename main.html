@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Asian Paints</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Asian Paints Grid</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h2>Asian Paints Grid</h2>
+  <div id="grid-container">
+    <div class="grid-item" id="1">1</div>
+    <div class="grid-item" id="2">2</div>
+    <div class="grid-item" id="3">3</div>
+    <div class="grid-item" id="4">4</div>
+    <div class="grid-item" id="5">5</div>
+    <div class="grid-item" id="6">6</div>
+    <div class="grid-item" id="7">7</div>
+    <div class="grid-item" id="8">8</div>
+    <div class="grid-item" id="9">9</div>
+  </div>
 
-    <div id="grid-container">
-        <div id="grid-item" data-id="1">1</div>
-        <div id="grid-item" data-id="2">2</div>
-        <div id="grid-item" data-id="3">3</div>
-        <div id="grid-item" data-id="4">4</div>
-        <div id="grid-item" data-id="5">5</div>
-        <div id="grid-item" data-id="6">6</div>
-        <div id="grid-item" data-id="7">7</div>
-        <div id="grid-item" data-id="8">8</div>
-        <div id="grid-item" data-id="9">9</div>
-    </div>
+  <br>
 
-    <!-- INPUTS -->
-    <input type="number" id="block_id" placeholder="Block ID (1-9)">
-    <input type="text" id="colour_id" placeholder="Color">
+  <label>Block ID:</label>
+  <input type="number" id="block_id" min="1" max="9">
 
-    <button id="change_button">Change Color</button>
-    <button id="Reset">Reset</button>
+  <label>Colour:</label>
+  <input type="text" id="colour_id">
 
-    <script src="script.js"></script>
+  <button id="change_button">Change Color</button>
+  <button id="Reset">Reset</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
