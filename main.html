@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Asian Paints Grid</title>
+    <title>Asian Paints</title>
     <style>
         #grid-container {
             display: grid;
             grid-template-columns: repeat(3, 100px);
             gap: 10px;
-            margin-bottom: 20px;
         }
         .grid-item {
             width: 100px;
             height: 100px;
-            background-color: transparent;
             border: 2px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: transparent;
             font-size: 20px;
             font-weight: bold;
         }
@@ -37,12 +36,34 @@
         <div class="grid-item" id="9">9</div>
     </div>
 
-    <input type="text" id="block_id" placeholder="Enter block id (1-9)">
-    <input type="text" id="colour_id" placeholder="Enter color">
-    <button id="change_button">Change Color</button>
-    <button id="Reset">Reset</button>
+    <br>
 
-    <script src="script.js"></script>
+    <input id="block_id" placeholder="block id" />
+    <input id="colour_id" placeholder="color" />
+
+    <button id="change_button" onclick="changeColor()">Change color</button>
+    <button id="Reset" onclick="resetColor()">Reset</button>
+
+    <script>
+        function resetColor() {
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById(i).style.backgroundColor = "transparent";
+            }
+        }
+
+        function changeColor() {
+            let block = document.getElementById("block_id").value;
+            let color = document.getElementById("colour_id").value;
+
+            resetColor();
+
+            if (block >= 1 && block <= 9) {
+                document.getElementById(block).style.backgroundColor = color;
+            }
+        }
+    </script>
+
 </body>
 </html>
+
 
