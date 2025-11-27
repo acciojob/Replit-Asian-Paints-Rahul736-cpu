@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Asian Paints Grid</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asian Paints Grid</title>
+    <style>
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            margin: 20px;
+        }
+        .grid-item {
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="grid-container">
-    <div class="grid-item" id="1">1</div>
-    <div class="grid-item" id="2">2</div>
-    <div class="grid-item" id="3">3</div>
-    <div class="grid-item" id="4">4</div>
-    <div class="grid-item" id="5">5</div>
-    <div class="grid-item" id="6">6</div>
-    <div class="grid-item" id="7">7</div>
-    <div class="grid-item" id="8">8</div>
-    <div class="grid-item" id="9">9</div>
-  </div>
+    <h2>Asian Paints 3×3 Color Grid</h2>
 
-  <br>
+    <div id="grid-container">
+        <div class="grid-item" id="1">1</div>
+        <div class="grid-item" id="2">2</div>
+        <div class="grid-item" id="3">3</div>
+        <div class="grid-item" id="4">4</div>
+        <div class="grid-item" id="5">5</div>
+        <div class="grid-item" id="6">6</div>
+        <div class="grid-item" id="7">7</div>
+        <div class="grid-item" id="8">8</div>
+        <div class="grid-item" id="9">9</div>
+    </div>
 
-  <label>Block ID:</label>
-  <input type="number" id="block_id" min="1" max="9">
+    <label>Enter Block ID:</label>
+    <input type="number" id="block_id" min="1" max="9">
 
-  <label>Colour:</label>
-  <input type="text" id="colour_id">
+    <label>Enter Colour:</label>
+    <input type="text" id="colour_id" placeholder="red / #ff0000">
 
-  <button id="change_button">Change Color</button>
-  <button id="Reset">Reset</button>
+    <button id="change_button">Change Color</button>
+    <button id="Reset">Reset</button>
 
-  <script src="script.js"></script>
+    <script>
+        const changeBtn = document.getElementById("change_button");
+        const resetBtn = document.getElementById("Reset");
+
+        // Change color button action
+        changeBtn.addEventListener("click", () => {
+            let blockId = document.getElementById("block_id").value;
+            let color = document.getElementById("colour_id").value;
+
+            // Reset all blocks to transparent first
+            let blocks = document.querySelectorAll(".grid-item");
+            blocks.forEach(block => block.style.backgroundColor = "transparent");
+
+            // Then apply color to selected block
+            let selectedBlock = document.getElementById(blockId);
+            if (selectedBlock) {
+                selectedBlock.style.backgroundColor = color;
+            } else {
+                alert("Invalid Block ID! Please enter a number from 1 to 9.");
+            }
+        });
+
+        // Reset Button
+        resetBtn.addEventListener("click", () => {
+            let blocks = document.querySelectorAll(".grid-item");
+            blocks.forEach(block => block.style.backgroundColor = "transparent");
+        });
+    </script>
+
 </body>
 </html>
-
